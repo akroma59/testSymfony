@@ -3,10 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <div class="container text-center">
+                <h1>Books store</h1>
+                <div class="row text-center">
+                    <div class="col-3">
+                        Sidebar <br>
+                        {% block sidebar %}
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link" href="{{ url("homepage") }}">Accueil</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ url("books:index") }}">Livres</a></li>                                
+                            </ul>
+                        {% endblock %}
+                    </div>
+                    <div class="col-9">
+                        {% block content %} 
+                            Panel Content
+                        {% endblock %}
+                    </div>
+                </div> 
+            </div>
+        {% endblock %}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

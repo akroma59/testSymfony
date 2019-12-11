@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BooksController!{% endblock %}
+
+{% block sidebar %}
+    <li class="nav-item"><a class="nav-link" href="{{ url("homepage") }}">Accueil</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{ url("books:index") }}">Livres</a></li>
+    <hr>
+    <li class="nav-item"><a class="nav-link" href="{{ url("books:create") }}">Crée un livre</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{ url("books:update", {'id': book.id}) }}">Modifier le livre</a></li>
+    <hr>
+    <li class="nav-item"><a class="nav-link" href="{{ url("books:delete", {'id': book.id}) }}">Supprime le livre</a></li> 
+{% endblock %}
+
+{% block content %}
+    <br>
+    Liste des livres
+{% endblock %}
